@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Course Management</title>
+  <link rel="stylesheet" href="/style.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Course Management</h1>
+    <nav aria-label="Sections">
+      <button data-section="users">Users</button>
+      <button data-section="courses">Courses</button>
+      <button data-section="modules">Modules</button>
+      <button data-section="contents">Contents</button>
+      <button data-section="reports">Reports</button>
+      <a href="/api-docs">API documentation</a>
+    </nav>
+    <h2 id="heading"></h2>
+    <p id="status" role="status"></p>
+    <form id="editor"></form>
+    <div id="results"></div>
+  </main>
+</body>
+</html>

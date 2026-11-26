@@ -1,0 +1,13 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #f2f5f9; color: #17263b; font: 16px system-ui, sans-serif; }
+main { max-width: 1050px; padding: 24px; margin: auto; }
+nav, form { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; }
+form { margin: 16px 0; }
+label { display: grid; gap: 4px; }
+button, input, select, textarea { font: inherit; padding: 7px 10px; }
+button { cursor: pointer; }
+button[aria-current="true"] { background: #234674; color: white; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th, td { padding: 9px; border: 1px solid #d5dce6; text-align: left; overflow-wrap: anywhere; }
+td button { margin: 2px; }
+#results { overflow: auto; }

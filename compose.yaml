@@ -1,0 +1,29 @@
+services:
+  database:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: course_management
+    volumes:
+      - course_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d course_management"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@database:5432/course_management?schema=public
+      DIRECT_URL: postgresql://postgres:postgres@database:5432/course_management?schema=public
+      HOST: 0.0.0.0
+      PORT: 3000
+    depends_on:
+      database:
+        condition: service_healthy
+    command: sh -c "npm run db:migrate && npm run db:seed && npm start"
+volumes:
+  course_data:
